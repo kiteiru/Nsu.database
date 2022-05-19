@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.sql.Date;
 
 @Getter
 @Setter
@@ -23,9 +23,9 @@ public class Schedule {
     private Integer workType;
 
     @Column(name = "deadline", nullable = false)
-    private LocalDate deadline;
+    private Date deadline;
 
     @Column(name = "actual_date")
-    private LocalDate actualDate;
+    private Date actualDate;
 
 }

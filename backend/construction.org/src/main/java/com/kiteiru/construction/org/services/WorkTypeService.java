@@ -1,5 +1,6 @@
 package com.kiteiru.construction.org.services;
 
+import com.kiteiru.construction.org.dto.WorkTypeOverDeadlineListDTO;
 import com.kiteiru.construction.org.entities.WorkType;
 import com.kiteiru.construction.org.repositories.WorkTypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,5 +18,13 @@ public class WorkTypeService {
     }
     public List<WorkType> getAll() {
         return repo.findAll();
+    }
+
+    public List<WorkTypeOverDeadlineListDTO> getWorkTypeOverDeadlineList(Integer siteIdParam,
+                                                                         Integer managementIdParam,
+                                                                         Integer organisationIdParam) {
+        return repo.getWorkTypeOverDeadlineList(siteIdParam,
+                                                managementIdParam,
+                                                organisationIdParam);
     }
 }

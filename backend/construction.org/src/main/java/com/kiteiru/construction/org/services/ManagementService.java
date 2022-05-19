@@ -1,6 +1,6 @@
 package com.kiteiru.construction.org.services;
 
-import com.kiteiru.construction.org.dto.ManagementInfoDTO;
+import com.kiteiru.construction.org.dto.ManagementListDTO;
 import com.kiteiru.construction.org.entities.Management;
 import com.kiteiru.construction.org.repositories.ManagementRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ public class ManagementService {
         return repo.findAll();
     }
 
-    //public List<ManagementInfoDTO> GetManagementList() {
-    //    return repo.GetManagementList();
-    //}
+    public List<ManagementListDTO> getManagementList() {
+        return repo.getManagementList();
+    }
 }

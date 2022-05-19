@@ -1,7 +1,6 @@
 package com.kiteiru.construction.org.controllers;
 
 import com.kiteiru.construction.org.dto.EngineerTechStaffListDTO;
-import com.kiteiru.construction.org.dto.EngineerTechStaffListDTO2;
 import com.kiteiru.construction.org.entities.EngineerTechStaff;
 import com.kiteiru.construction.org.services.EngineerTechStaffService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +26,8 @@ public class EngineerTechStaffController {
         return serv.getAll();
     }
 
-    @GetMapping(path = "/get")
-    public List <EngineerTechStaffListDTO2> GetEngineerTechWorkers(@RequestParam(required = false, defaultValue = "4") Integer site_id_param) {
-        return serv.GetEngineerTechWorkers(site_id_param);
+    @GetMapping(path = "/list")
+    public List<EngineerTechStaffListDTO> getEngineerTechStaffList(@RequestParam(required = false) Integer siteIdParam) {
+        return serv.getEngineerTechStaffList(siteIdParam);
     }
 }

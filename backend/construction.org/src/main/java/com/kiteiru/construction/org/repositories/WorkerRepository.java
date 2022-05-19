@@ -15,8 +15,8 @@ public interface WorkerRepository extends JpaRepository<Worker, Integer> {
 
     public List<Worker> findByPatronymic(String patronymic);
 
-    @Query("SELECT w.surname FROM Worker w " +
-            "INNER JOIN EngineerTechStaff AS e ON w.id = e.id " +
+    @Query("SELECT worker FROM Worker worker " +
+            "INNER JOIN EngineerTechStaff AS e ON worker.id = e.id " +
             "INNER JOIN Site AS s ON e.headId = s.headId")
-    public List<Worker> getAllWorkersUsingJPAQL();
+    public List<Worker> getAllWorkersByName();
 }

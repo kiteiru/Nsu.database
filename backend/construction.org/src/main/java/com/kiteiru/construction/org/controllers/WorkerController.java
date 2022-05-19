@@ -38,8 +38,8 @@ public class WorkerController {
     }
 
     @GetMapping(path = "/getAll")
-    public List<Worker> getAllWorkersUsingJPAQL() {
-        return serv.getAllWorkersUsingJPAQL();
+    public List<Worker> getAllWorkersByName() {
+        return serv.getAllWorkersByName();
     }
 
 }

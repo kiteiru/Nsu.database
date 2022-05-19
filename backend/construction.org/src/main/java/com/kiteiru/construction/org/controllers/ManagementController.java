@@ -1,6 +1,6 @@
 package com.kiteiru.construction.org.controllers;
 
-import com.kiteiru.construction.org.dto.ManagementInfoDTO;
+import com.kiteiru.construction.org.dto.ManagementListDTO;
 import com.kiteiru.construction.org.entities.Management;
 import com.kiteiru.construction.org.services.ManagementService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,8 +25,9 @@ public class ManagementController {
         return serv.getAll();
     }
 
-    //@GetMapping(path = "/get_management_list")
-    //public List<ManagementInfoDTO> GetManagementList() {
-    //    return serv.GetManagementList();
-    //}
+    @GetMapping(path = "/list")
+    public List <ManagementListDTO> getManagementList() {
+        return serv.getManagementList();
+    }
+
 }

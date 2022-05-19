@@ -1,5 +1,6 @@
 package com.kiteiru.construction.org.services;
 
+import com.kiteiru.construction.org.dto.MaterialOverEstimateListDTO;
 import com.kiteiru.construction.org.entities.Material;
 import com.kiteiru.construction.org.repositories.MaterialRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,5 +18,13 @@ public class MaterialService {
     }
     public List<Material> getAll() {
         return repo.findAll();
+    }
+
+    public List<MaterialOverEstimateListDTO> getMaterialOverEstimateList(Integer siteIdParam,
+                                                                         Integer managementIdParam,
+                                                                         Integer organisationIdParam) {
+        return repo.getMaterialOverEstimateList(siteIdParam,
+                                                managementIdParam,
+                                                organisationIdParam);
     }
 }

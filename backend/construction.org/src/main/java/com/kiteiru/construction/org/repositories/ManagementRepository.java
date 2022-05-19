@@ -1,6 +1,6 @@
 package com.kiteiru.construction.org.repositories;
 
-import com.kiteiru.construction.org.dto.ManagementInfoDTO;
+import com.kiteiru.construction.org.dto.ManagementListDTO;
 import com.kiteiru.construction.org.entities.Management;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -10,7 +10,13 @@ import java.util.List;
 
 @Repository
 public interface ManagementRepository extends JpaRepository<Management, Integer> {
-
-    //@Query(nativeQuery = true, value = "SELECT * FROM get_management_list(" + ");")
-    //List<ManagementInfoDTO> GetManagementList();
+    @Query(value = "SELECT m.name AS managementName," +
+            "               s.name AS siteName," +
+            "               w.surname AS workerSurname," +
+            "               w.name AS workerName," +
+            "               w.patronymic AS workerPatronymic" +
+            "        FROM Management AS m" +
+            "                 INNER JOIN Site AS s ON m.id = s.management" +
+            "                 INNER JOIN Worker AS w ON s.headId = w.id")
+    List<ManagementListDTO> getManagementList();
 }

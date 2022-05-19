@@ -31,7 +31,7 @@ public class WorkerService {
         return repo.findByPatronymic(patronymic);
     }
 
-    public List<Worker> getAllWorkersUsingJPAQL() {
-        return repo.getAllWorkersUsingJPAQL();
+    public List<Worker> getAllWorkersByName() {
+        return repo.getAllWorkersByName();
     }
 }

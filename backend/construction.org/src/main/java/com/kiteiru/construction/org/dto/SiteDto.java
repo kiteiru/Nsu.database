@@ -1,0 +1,17 @@
+package com.kiteiru.construction.org.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.io.Serializable;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class SiteDto implements Serializable, BaseDto {
+    private Integer id;
+    private String name;
+    private String managementName;
+    private String headSurname;
+}

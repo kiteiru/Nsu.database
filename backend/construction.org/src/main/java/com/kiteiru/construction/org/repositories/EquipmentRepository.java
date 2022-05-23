@@ -1,14 +1,13 @@
 package com.kiteiru.construction.org.repositories;
 
-import com.kiteiru.construction.org.dto.EquipmentListDTO;
-import com.kiteiru.construction.org.dto.EquipmentOnObjectListDTO;
+import com.kiteiru.construction.org.dto.queries.EquipmentListDTO;
+import com.kiteiru.construction.org.dto.queries.EquipmentOnObjectListDTO;
 import com.kiteiru.construction.org.entities.Equipment;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import java.sql.Date;
 import java.sql.Date;
 import java.util.List;
 

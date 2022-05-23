@@ -1,6 +1,6 @@
 package com.kiteiru.construction.org.services;
 
-import com.kiteiru.construction.org.dto.MaterialOverEstimateListDTO;
+import com.kiteiru.construction.org.dto.queries.MaterialOverEstimateListDTO;
 import com.kiteiru.construction.org.entities.Material;
 import com.kiteiru.construction.org.repositories.MaterialRepository;
 import org.springframework.beans.factory.annotation.Autowired;

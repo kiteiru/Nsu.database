@@ -1,6 +1,6 @@
 package com.kiteiru.construction.org.repositories;
 
-import com.kiteiru.construction.org.dto.WorkTypeByBrigadeInPeriodListDTO;
+import com.kiteiru.construction.org.dto.queries.WorkTypeByBrigadeInPeriodListDTO;
 import com.kiteiru.construction.org.entities.WorkTypeByBrigade;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -12,6 +12,7 @@ import java.util.List;
 
 @Repository
 public interface WorkTypeByBrigadeRepository extends JpaRepository<WorkTypeByBrigade, Integer> {
+    /*
     @Query(value = "SELECT o.name AS objectName," +
             "               b.id AS brigadeId," +
             "               wT.name AS workTypeName," +
@@ -32,4 +33,6 @@ public interface WorkTypeByBrigadeRepository extends JpaRepository<WorkTypeByBri
                                                                             @Param("startDate") Date startDate,
                                                                             @Param("endDate") Date endDate,
                                                                             @Param("objectIdParam") Integer objectIdParam);
+*/
 }
+

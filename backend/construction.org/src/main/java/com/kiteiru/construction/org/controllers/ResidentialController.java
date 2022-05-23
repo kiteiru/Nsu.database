@@ -1,6 +1,6 @@
 package com.kiteiru.construction.org.controllers;
 
-import com.kiteiru.construction.org.entities.Residential;
+import com.kiteiru.construction.org.dto.ResidentialDto;
 import com.kiteiru.construction.org.services.ResidentialService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +20,7 @@ public class ResidentialController {
     }
 
     @GetMapping
-    public List<Residential> getAll() {
+    public List<ResidentialDto> getAll() {
         return serv.getAll();
     }
 }

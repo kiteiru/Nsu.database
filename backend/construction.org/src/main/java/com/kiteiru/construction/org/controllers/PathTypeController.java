@@ -1,6 +1,6 @@
 package com.kiteiru.construction.org.controllers;
 
-import com.kiteiru.construction.org.entities.PathType;
+import com.kiteiru.construction.org.dto.PathTypeDto;
 import com.kiteiru.construction.org.services.PathTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +20,7 @@ public class PathTypeController {
     }
 
     @GetMapping
-    public List<PathType> getAll() {
+    public List<PathTypeDto> getAll() {
         return serv.getAll();
     }
 }

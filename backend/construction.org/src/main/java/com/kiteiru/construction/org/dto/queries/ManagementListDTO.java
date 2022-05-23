@@ -1,4 +1,4 @@
-package com.kiteiru.construction.org.dto;
+package com.kiteiru.construction.org.dto.queries;
 
 public interface ManagementListDTO {
     String getManagementName();

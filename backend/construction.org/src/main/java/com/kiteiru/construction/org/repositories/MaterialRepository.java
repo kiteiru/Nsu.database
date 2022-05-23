@@ -1,6 +1,6 @@
 package com.kiteiru.construction.org.repositories;
 
-import com.kiteiru.construction.org.dto.MaterialOverEstimateListDTO;
+import com.kiteiru.construction.org.dto.queries.MaterialOverEstimateListDTO;
 import com.kiteiru.construction.org.entities.Material;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

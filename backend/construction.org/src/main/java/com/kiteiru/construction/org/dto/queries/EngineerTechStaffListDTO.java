@@ -1,4 +1,4 @@
-package com.kiteiru.construction.org.dto;
+package com.kiteiru.construction.org.dto.queries;
 
 import com.kiteiru.construction.org.enums.EngineerTechStaffType;
 

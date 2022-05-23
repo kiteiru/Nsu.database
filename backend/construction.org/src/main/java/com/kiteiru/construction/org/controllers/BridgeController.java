@@ -1,6 +1,6 @@
 package com.kiteiru.construction.org.controllers;
 
-import com.kiteiru.construction.org.entities.Bridge;
+import com.kiteiru.construction.org.dto.BridgeDto;
 import com.kiteiru.construction.org.services.BridgeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +20,7 @@ public class BridgeController {
     }
 
     @GetMapping
-    public List<Bridge> getAll() {
+    public List<BridgeDto> getAll() {
         return serv.getAll();
     }
 }

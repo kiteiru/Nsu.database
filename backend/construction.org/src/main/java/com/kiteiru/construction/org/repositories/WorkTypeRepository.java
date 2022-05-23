@@ -1,6 +1,6 @@
 package com.kiteiru.construction.org.repositories;
 
-import com.kiteiru.construction.org.dto.WorkTypeOverDeadlineListDTO;
+import com.kiteiru.construction.org.dto.queries.WorkTypeOverDeadlineListDTO;
 import com.kiteiru.construction.org.entities.WorkType;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

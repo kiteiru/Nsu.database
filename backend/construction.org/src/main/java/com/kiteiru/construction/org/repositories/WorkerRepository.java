@@ -17,6 +17,6 @@ public interface WorkerRepository extends JpaRepository<Worker, Integer> {
 
     @Query("SELECT worker FROM Worker worker " +
             "INNER JOIN EngineerTechStaff AS e ON worker.id = e.id " +
-            "INNER JOIN Site AS s ON e.headId = s.headId")
+            "INNER JOIN Site AS s ON e.headId = s.head.id")
     public List<Worker> getAllWorkersByName();
 }

@@ -1,7 +1,7 @@
 package com.kiteiru.construction.org.controllers;
 
-import com.kiteiru.construction.org.dto.WorkTypeByBrigadeInPeriodListDTO;
-import com.kiteiru.construction.org.entities.WorkTypeByBrigade;
+import com.kiteiru.construction.org.dto.WorkTypeByBrigadeDto;
+import com.kiteiru.construction.org.dto.queries.WorkTypeByBrigadeInPeriodListDTO;
 import com.kiteiru.construction.org.services.WorkTypeByBrigadeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,10 +23,11 @@ public class WorkTypeByBrigadeController {
     }
 
     @GetMapping
-    public List<WorkTypeByBrigade> getAll() {
+    public List<WorkTypeByBrigadeDto> getAll() {
         return serv.getAll();
     }
 
+    /*
     @GetMapping(path = "/in_period")
     public List<WorkTypeByBrigadeInPeriodListDTO> getWorkTypeByBrigadeInPeriodList(@RequestParam(required = false) Integer brigadeIdParam,
                                                                                    @RequestParam(required = false) Date startDate,
@@ -36,5 +37,5 @@ public class WorkTypeByBrigadeController {
                                                      startDate,
                                                      endDate,
                                                      objectIdParam);
-    }
+    }*/
 }

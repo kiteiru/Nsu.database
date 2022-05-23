@@ -1,15 +1,14 @@
 package com.kiteiru.construction.org.repositories;
 
-import com.kiteiru.construction.org.dto.ObjectListDTO;
-import com.kiteiru.construction.org.dto.ObjectWorkTypeListDTO;
-import com.kiteiru.construction.org.dto.ReportListDTO;
-import com.kiteiru.construction.org.dto.ScheduleAndEstimateListDTO;
-import com.kiteiru.construction.org.entities.Object;
+import com.kiteiru.construction.org.dto.queries.ObjectListDTO;
+import com.kiteiru.construction.org.dto.queries.ObjectWorkTypeListDTO;
+import com.kiteiru.construction.org.dto.queries.ReportListDTO;
+import com.kiteiru.construction.org.dto.queries.ScheduleAndEstimateListDTO;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-
+import com.kiteiru.construction.org.entities.Object;
 import java.sql.Date;
 import java.util.List;
 
@@ -21,8 +20,8 @@ public interface ObjectRepository extends JpaRepository<Object, Integer> {
             "               sch.deadline AS scheduleDeadline," +
             "               wT.name AS workTypeName" +
             "        FROM Management AS m" +
-            "                 INNER JOIN Site AS s ON m.id = s.management" +
-            "                 INNER JOIN Object AS o ON s.id = o.site" +
+            "                 INNER JOIN Site AS s ON m.id = s.management.id" +
+            "                 INNER JOIN Object AS o ON s.id = o.site.id" +
             "                 INNER JOIN Schedule AS sch ON o.id = sch.object" +
             "                 INNER JOIN WorkType wT on sch.workType = wT.id" +
             "        WHERE (:siteIdParam IS NOT NULL AND s.id = :siteIdParam OR :siteIdParam IS NULL)")

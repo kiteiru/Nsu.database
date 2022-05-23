@@ -1,5 +1,6 @@
 package com.kiteiru.construction.org.controllers;
 
+import com.kiteiru.construction.org.dto.BuildingTypeDto;
 import com.kiteiru.construction.org.entities.BuildingType;
 import com.kiteiru.construction.org.services.BuildingTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,7 @@ public class BuildingTypeController {
     }
 
     @GetMapping
-    public List<BuildingType> getAll() {
+    public List<BuildingTypeDto> getAll() {
         return serv.getAll();
     }
 }

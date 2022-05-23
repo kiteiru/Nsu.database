@@ -1,7 +1,7 @@
 package com.kiteiru.construction.org.controllers;
 
-import com.kiteiru.construction.org.dto.BrigadeListDTO;
-import com.kiteiru.construction.org.dto.BrigadeByWorkTypeInPeriodListDTO;
+import com.kiteiru.construction.org.dto.queries.BrigadeListDTO;
+import com.kiteiru.construction.org.dto.queries.BrigadeByWorkTypeInPeriodListDTO;
 import com.kiteiru.construction.org.entities.Brigade;
 import com.kiteiru.construction.org.services.BrigadeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +28,7 @@ public class BrigadeController {
         return serv.getAll();
     }
 
+    /*
     @GetMapping(path = "/list")
     public List <BrigadeListDTO> getBrigadeList(@RequestParam(required = false) Integer objectIdParam) {
         return serv.getBrigadeList(objectIdParam);
@@ -43,4 +44,6 @@ public class BrigadeController {
                                                     endDate,
                                                     objectIdParam);
     }
+
+     */
 }

@@ -1,7 +1,10 @@
 package com.kiteiru.construction.org.controllers;
 
-import com.kiteiru.construction.org.dto.*;
-import com.kiteiru.construction.org.entities.Object;
+import com.kiteiru.construction.org.dto.ObjectDto;
+import com.kiteiru.construction.org.dto.queries.ObjectListDTO;
+import com.kiteiru.construction.org.dto.queries.ObjectWorkTypeListDTO;
+import com.kiteiru.construction.org.dto.queries.ReportListDTO;
+import com.kiteiru.construction.org.dto.queries.ScheduleAndEstimateListDTO;
 import com.kiteiru.construction.org.services.ObjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,7 +26,7 @@ public class ObjectController {
     }
 
     @GetMapping
-    public List<Object> getAll() {
+    public List<ObjectDto> getAll() {
         return serv.getAll();
     }
 
@@ -44,9 +47,9 @@ public class ObjectController {
 
     @GetMapping(path = "/work_type")
     public List <ObjectWorkTypeListDTO> getObjectWorkTypeList(@RequestParam(required = false) Integer organisationIdParam,
-                                                                @RequestParam(required = false) Date startDate,
-                                                                @RequestParam(required = false) Date endDate,
-                                                                @RequestParam(required = false) Integer workTypeIdParam) {
+                                                              @RequestParam(required = false) Date startDate,
+                                                              @RequestParam(required = false) Date endDate,
+                                                              @RequestParam(required = false) Integer workTypeIdParam) {
         return serv.getObjectWorkTypeList(organisationIdParam,
                                             startDate,
                                             endDate,

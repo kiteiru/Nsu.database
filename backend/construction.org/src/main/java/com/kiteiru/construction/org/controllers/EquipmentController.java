@@ -1,8 +1,8 @@
 package com.kiteiru.construction.org.controllers;
 
-import com.kiteiru.construction.org.dto.EquipmentListDTO;
-import com.kiteiru.construction.org.dto.EquipmentOnObjectListDTO;
-import com.kiteiru.construction.org.entities.Equipment;
+import com.kiteiru.construction.org.dto.EquipmentDto;
+import com.kiteiru.construction.org.dto.queries.EquipmentListDTO;
+import com.kiteiru.construction.org.dto.queries.EquipmentOnObjectListDTO;
 import com.kiteiru.construction.org.services.EquipmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -25,7 +25,7 @@ public class EquipmentController {
     }
 
     @GetMapping
-    public List<Equipment> getAll() {
+    public List<EquipmentDto> getAll() {
         return serv.getAll();
     }
 

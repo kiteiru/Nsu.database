@@ -1,7 +1,7 @@
 package com.kiteiru.construction.org.repositories;
 
-import com.kiteiru.construction.org.dto.BrigadeListDTO;
-import com.kiteiru.construction.org.dto.BrigadeByWorkTypeInPeriodListDTO;
+import com.kiteiru.construction.org.dto.queries.BrigadeListDTO;
+import com.kiteiru.construction.org.dto.queries.BrigadeByWorkTypeInPeriodListDTO;
 import com.kiteiru.construction.org.entities.Brigade;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -13,7 +13,7 @@ import java.util.List;
 
 @Repository
 public interface BrigadeRepository extends JpaRepository<Brigade, Integer> {
-    @Query(value = "SELECT o.name AS objectName," +
+    /*@Query(value = "SELECT o.name AS objectName," +
             "               b.id AS brigadeId," +
             "               w.surname AS workerSurname," +
             "               w.name AS workerName," +
@@ -47,4 +47,6 @@ public interface BrigadeRepository extends JpaRepository<Brigade, Integer> {
                                                                            @Param("startDate") Date startDate,
                                                                            @Param("endDate") Date endDate,
                                                                            @Param("objectIdParam") Integer objectIdParam);
+*/
 }
+

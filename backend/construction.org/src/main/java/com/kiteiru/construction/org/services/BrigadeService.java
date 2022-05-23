@@ -1,7 +1,7 @@
 package com.kiteiru.construction.org.services;
 
-import com.kiteiru.construction.org.dto.BrigadeListDTO;
-import com.kiteiru.construction.org.dto.BrigadeByWorkTypeInPeriodListDTO;
+import com.kiteiru.construction.org.dto.queries.BrigadeListDTO;
+import com.kiteiru.construction.org.dto.queries.BrigadeByWorkTypeInPeriodListDTO;
 import com.kiteiru.construction.org.entities.Brigade;
 import com.kiteiru.construction.org.repositories.BrigadeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,11 +22,11 @@ public class BrigadeService {
         return repo.findAll();
     }
 
-    public List<BrigadeListDTO> getBrigadeList(Integer objectIdParam) {
+    /*public List<BrigadeListDTO> getBrigadeList(Integer objectIdParam) {
         return repo.getBrigadeList(objectIdParam);
-    }
+    }*/
 
-    public List<BrigadeByWorkTypeInPeriodListDTO> getBrigadeByWorkTypeInPeriodList(Integer workTypeIdParam,
+    /*public List<BrigadeByWorkTypeInPeriodListDTO> getBrigadeByWorkTypeInPeriodList(Integer workTypeIdParam,
                                                                                   Date startDate,
                                                                                   Date endDate,
                                                                                   Integer objectIdParam) {
@@ -34,5 +34,5 @@ public class BrigadeService {
                                                     startDate,
                                                     endDate,
                                                     objectIdParam);
-    }
+    }*/
 }

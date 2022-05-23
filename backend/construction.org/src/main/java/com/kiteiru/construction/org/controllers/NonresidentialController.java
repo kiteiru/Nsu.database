@@ -1,6 +1,6 @@
 package com.kiteiru.construction.org.controllers;
 
-import com.kiteiru.construction.org.entities.Nonresidential;
+import com.kiteiru.construction.org.dto.NonresidentialDto;
 import com.kiteiru.construction.org.services.NonresidentialService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +20,7 @@ public class NonresidentialController {
     }
 
     @GetMapping
-    public List<Nonresidential> getAll() {
+    public List<NonresidentialDto> getAll() {
         return serv.getAll();
     }
 }

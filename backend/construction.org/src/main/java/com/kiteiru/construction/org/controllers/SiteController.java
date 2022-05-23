@@ -1,6 +1,6 @@
 package com.kiteiru.construction.org.controllers;
 
-import com.kiteiru.construction.org.entities.Site;
+import com.kiteiru.construction.org.dto.SiteDto;
 import com.kiteiru.construction.org.services.SiteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +20,7 @@ public class SiteController {
     }
 
     @GetMapping
-    public List<Site> getAll() {
+    public List<SiteDto> getAll() {
         return serv.getAll();
     }
 }

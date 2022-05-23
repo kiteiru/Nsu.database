@@ -1,6 +1,6 @@
 package com.kiteiru.construction.org.controllers;
 
-import com.kiteiru.construction.org.dto.WorkTypeOverDeadlineListDTO;
+import com.kiteiru.construction.org.dto.queries.WorkTypeOverDeadlineListDTO;
 import com.kiteiru.construction.org.entities.WorkType;
 import com.kiteiru.construction.org.services.WorkTypeService;
 import org.springframework.beans.factory.annotation.Autowired;

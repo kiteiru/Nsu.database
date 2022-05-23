@@ -1,6 +1,6 @@
 package com.kiteiru.construction.org.controllers;
 
-import com.kiteiru.construction.org.entities.Road;
+import com.kiteiru.construction.org.dto.RoadDto;
 import com.kiteiru.construction.org.services.RoadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +20,7 @@ public class RoadController {
     }
 
     @GetMapping
-    public List<Road> getAll() {
+    public List<RoadDto> getAll() {
         return serv.getAll();
     }
 }

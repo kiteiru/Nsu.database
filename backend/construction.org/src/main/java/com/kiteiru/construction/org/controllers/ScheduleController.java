@@ -1,6 +1,6 @@
 package com.kiteiru.construction.org.controllers;
 
-import com.kiteiru.construction.org.entities.Schedule;
+import com.kiteiru.construction.org.dto.ScheduleDto;
 import com.kiteiru.construction.org.services.ScheduleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +20,7 @@ public class ScheduleController {
     }
 
     @GetMapping
-    public List<Schedule> getAll() {
+    public List<ScheduleDto> getAll() {
         return serv.getAll();
     }
 }

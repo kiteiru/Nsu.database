@@ -1,13 +1,11 @@
-package com.kiteiru.construction.org.dto;
+package com.kiteiru.construction.org.dto.queries;
 
 import java.sql.Date;
 
-public interface WorkTypeOverDeadlineListDTO {
+public interface ObjectWorkTypeListDTO {
     String getOrganisationName();
     String getManagementName();
-    String getSiteName();
     String getObjectName();
     String getWorkTypeName();
-    Date getScheduleDeadline();
     Date getScheduleActualDate();
 }

@@ -7,10 +7,8 @@ import com.kiteiru.construction.org.dto.queries.ReportListDTO;
 import com.kiteiru.construction.org.dto.queries.ScheduleAndEstimateListDTO;
 import com.kiteiru.construction.org.services.ObjectService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import com.kiteiru.construction.org.entities.Object;
+import org.springframework.web.bind.annotation.*;
 
 import java.sql.Date;
 import java.util.List;
@@ -54,5 +52,20 @@ public class ObjectController {
                                             startDate,
                                             endDate,
                                             workTypeIdParam);
+    }
+
+    @PostMapping
+    public Object save(@RequestBody Object object) {
+        return serv.save(object);
+    }
+
+    /*@PutMapping
+    public Object updateObject(@RequestBody Object object) {
+        return serv.update(object);
+    }*/
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable("id") Integer id) {
+        serv.delete(id);
     }
 }

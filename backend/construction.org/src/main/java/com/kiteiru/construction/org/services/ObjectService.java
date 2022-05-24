@@ -6,11 +6,13 @@ import com.kiteiru.construction.org.dto.queries.ObjectWorkTypeListDTO;
 import com.kiteiru.construction.org.dto.queries.ReportListDTO;
 import com.kiteiru.construction.org.dto.queries.ScheduleAndEstimateListDTO;
 import com.kiteiru.construction.org.entities.Object;
+import com.kiteiru.construction.org.entities.Site;
 import com.kiteiru.construction.org.mapper.ObjectMapper;
 import com.kiteiru.construction.org.repositories.ObjectRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.kiteiru.construction.org.repositories.SiteRepository;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,11 +20,13 @@ import java.util.List;
 @Service
 public class ObjectService {
     private final ObjectRepository repo;
+    private final SiteRepository siteRepo;
 
     private final ObjectMapper objectMapper;
 
-    public ObjectService(ObjectRepository repo, ObjectMapper objectMapper) {
+    public ObjectService(ObjectRepository repo, SiteRepository siteRepo, ObjectMapper objectMapper) {
         this.repo = repo;
+        this.siteRepo = siteRepo;
         this.objectMapper = objectMapper;
     }
     public List<ObjectDto> getAll() {
@@ -51,4 +55,27 @@ public class ObjectService {
     public List<ReportListDTO> getReportList(Integer objectIdParam) {
         return repo.getReportList(objectIdParam);
     }
+
+    public Object save(Object object) {
+        return repo.save(object);
+    }
+
+    /*@Transactional
+    public Object update(Object object) {
+        Object objToUpd = repo.findById(object.getId()).orElseThrow(() -> new IllegalStateException("no person with id " + object.getId()));
+        if (object.getName() != null) {
+            objToUpd.setName(object.getName());
+        }
+        if (object.getSite().getId() != null) {
+            Integer siteId = object.getSite().getId();
+            Site site = siteRepo.getById(siteId);
+            objToUpd.setSite(site);
+        }
+        return repo.save(object);
+    }*/
+
+    public void delete(Integer id) {
+        repo.deleteById(id);
+    }
 }
+

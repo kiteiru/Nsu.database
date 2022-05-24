@@ -13,7 +13,11 @@ import javax.persistence.*;
 })
 public class Object implements BaseEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SequenceGenerator(name="object_generator",
+            sequenceName="object_id_seq",
+            allocationSize=1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,
+            generator="object_generator")
     @Column(name = "id", nullable = false)
     private Integer id;
 

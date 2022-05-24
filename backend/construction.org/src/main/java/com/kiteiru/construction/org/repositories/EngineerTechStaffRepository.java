@@ -1,5 +1,6 @@
 package com.kiteiru.construction.org.repositories;
 
+import com.kiteiru.construction.org.dto.EngineerTechStaffDto;
 import com.kiteiru.construction.org.dto.queries.EngineerTechStaffListDTO;
 import com.kiteiru.construction.org.entities.EngineerTechStaff;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -20,7 +21,7 @@ public interface EngineerTechStaffRepository extends JpaRepository<EngineerTechS
             "               e.engineerTechStaffType AS engineerTechStaffType" +
             "        FROM Management AS m" +
             "                 INNER JOIN Site AS s ON m.id = s.management.id" +
-            "                 INNER JOIN EngineerTechStaff AS e ON s.head.id = e.headId OR s.head.id = e.id" +
+            "                 INNER JOIN EngineerTechStaff AS e ON s.head.id = e.head.id OR s.head.id = e.id" +
             "                 INNER JOIN Worker AS w ON e.id = w.id" +
             "        WHERE (:siteIdParam IS NOT NULL AND s.id = :siteIdParam OR :siteIdParam IS NULL)")
     List<EngineerTechStaffListDTO> getEngineerTechStaffList(@Param("siteIdParam") Integer siteIdParam);

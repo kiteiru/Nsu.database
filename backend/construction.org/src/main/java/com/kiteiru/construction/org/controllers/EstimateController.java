@@ -1,12 +1,11 @@
 package com.kiteiru.construction.org.controllers;
 
 import com.kiteiru.construction.org.dto.EstimateDto;
+import com.kiteiru.construction.org.entities.BuildingType;
 import com.kiteiru.construction.org.entities.Estimate;
 import com.kiteiru.construction.org.services.EstimateService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,5 +22,14 @@ public class EstimateController {
     @GetMapping
     public List<EstimateDto> getAll() {
         return serv.getAll();
+    }
+
+    @PostMapping
+    public Estimate save(@RequestBody Estimate estimate) {
+        return serv.save(estimate);
+    }
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable("id") Integer id) {
+        serv.delete(id);
     }
 }

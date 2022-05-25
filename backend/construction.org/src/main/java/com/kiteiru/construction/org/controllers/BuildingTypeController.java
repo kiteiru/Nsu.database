@@ -1,12 +1,11 @@
 package com.kiteiru.construction.org.controllers;
 
 import com.kiteiru.construction.org.dto.BuildingTypeDto;
+import com.kiteiru.construction.org.entities.Brigade;
 import com.kiteiru.construction.org.entities.BuildingType;
 import com.kiteiru.construction.org.services.BuildingTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,5 +22,14 @@ public class BuildingTypeController {
     @GetMapping
     public List<BuildingTypeDto> getAll() {
         return serv.getAll();
+    }
+
+    @PostMapping
+    public BuildingType save(@RequestBody BuildingType buildingType) {
+        return serv.save(buildingType);
+    }
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable("id") Integer id) {
+        serv.delete(id);
     }
 }

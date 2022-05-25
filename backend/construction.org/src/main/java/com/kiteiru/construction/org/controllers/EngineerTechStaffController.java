@@ -2,12 +2,11 @@ package com.kiteiru.construction.org.controllers;
 
 import com.kiteiru.construction.org.dto.EngineerTechStaffDto;
 import com.kiteiru.construction.org.dto.queries.EngineerTechStaffListDTO;
+import com.kiteiru.construction.org.entities.BuildingType;
+import com.kiteiru.construction.org.entities.EngineerTechStaff;
 import com.kiteiru.construction.org.services.EngineerTechStaffService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,5 +28,14 @@ public class EngineerTechStaffController {
     @GetMapping(path = "/list")
     public List<EngineerTechStaffListDTO> getEngineerTechStaffList(@RequestParam(required = false) Integer siteIdParam) {
         return serv.getEngineerTechStaffList(siteIdParam);
+    }
+
+    @PostMapping
+    public EngineerTechStaff save(@RequestBody EngineerTechStaff engineerTechStaff) {
+        return serv.save(engineerTechStaff);
+    }
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable("id") Integer id) {
+        serv.delete(id);
     }
 }

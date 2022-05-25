@@ -1,11 +1,11 @@
 package com.kiteiru.construction.org.controllers;
 
 import com.kiteiru.construction.org.dto.RoadDto;
+import com.kiteiru.construction.org.entities.BuildingType;
+import com.kiteiru.construction.org.entities.Road;
 import com.kiteiru.construction.org.services.RoadService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,5 +22,14 @@ public class RoadController {
     @GetMapping
     public List<RoadDto> getAll() {
         return serv.getAll();
+    }
+
+    @PostMapping
+    public Road save(@RequestBody Road road) {
+        return serv.save(road);
+    }
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable("id") Integer id) {
+        serv.delete(id);
     }
 }

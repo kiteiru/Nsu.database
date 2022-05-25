@@ -1,6 +1,7 @@
 package com.kiteiru.construction.org.services;
 
 import com.kiteiru.construction.org.dto.ContractDto;
+import com.kiteiru.construction.org.entities.BuildingType;
 import com.kiteiru.construction.org.entities.Contract;
 import com.kiteiru.construction.org.entities.Object;
 import com.kiteiru.construction.org.mapper.ContractMapper;
@@ -24,5 +25,12 @@ public class ContractService {
     public List<ContractDto> getAll() {
         List<Contract> contracts =  new ArrayList<>(repo.findAll());
         return contractMapper.entitiesToDtos(contracts);
+    }
+
+    public Contract save(Contract contract) {
+        return repo.save(contract);
+    }
+    public void delete(Integer id) {
+        repo.deleteById(id);
     }
 }

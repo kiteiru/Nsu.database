@@ -1,11 +1,11 @@
 package com.kiteiru.construction.org.controllers;
 
 import com.kiteiru.construction.org.dto.ResidentialDto;
+import com.kiteiru.construction.org.entities.BuildingType;
+import com.kiteiru.construction.org.entities.Residential;
 import com.kiteiru.construction.org.services.ResidentialService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,5 +22,14 @@ public class ResidentialController {
     @GetMapping
     public List<ResidentialDto> getAll() {
         return serv.getAll();
+    }
+
+    @PostMapping
+    public Residential save(@RequestBody Residential residential) {
+        return serv.save(residential);
+    }
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable("id") Integer id) {
+        serv.delete(id);
     }
 }

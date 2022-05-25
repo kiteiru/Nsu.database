@@ -1,9 +1,5 @@
 export const organisationIdParamOptions = [
     {
-        value: null,
-        label: "All"
-    },
-    {
         value: 1,
         label: "New Industry"
     },
@@ -22,10 +18,6 @@ export const organisationIdParamOptions = [
 ]
 
 export const managementIdParamOptions = [
-    {
-        value: null,
-        label: "All"
-    },
     {
         value: 1,
         label: "Novosibirsk City Buildings Management"
@@ -46,10 +38,6 @@ export const managementIdParamOptions = [
 
 export const siteIdParamOptions = [
     {
-        value: null,
-        label: "All"
-    },
-    {
         value: 2,
         label: "Railway \"Novosibirsk-Tomsk\""
     },
@@ -68,10 +56,6 @@ export const siteIdParamOptions = [
 ]
 
 export const objectIdParamOptions = [
-    {
-        value: null,
-        label: "All"
-    },
     {
         value: 1,
         label: "House №17"
@@ -103,10 +87,6 @@ export const objectIdParamOptions = [
 ]
 
 export const workTypeIdParamOptions = [
-    {
-        value: null,
-        label: "All"
-    },
     {
         value: 1,
         label: "Foundation laying"
@@ -147,10 +127,6 @@ export const workTypeIdParamOptions = [
 
 export const brigadeIdParamOptions = [
     {
-        value: null,
-        label: "All"
-    },
-    {
         value: 1,
         label: "1"
     },
@@ -163,3 +139,4 @@ export const brigadeIdParamOptions = [
         label: "3"
     }
 ]
+

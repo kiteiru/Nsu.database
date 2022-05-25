@@ -2,6 +2,7 @@ package com.kiteiru.construction.org.services;
 
 import com.kiteiru.construction.org.dto.RoadDto;
 import com.kiteiru.construction.org.entities.Object;
+import com.kiteiru.construction.org.entities.Residential;
 import com.kiteiru.construction.org.entities.Road;
 import com.kiteiru.construction.org.mapper.RoadMapper;
 import com.kiteiru.construction.org.repositories.RoadRepository;
@@ -25,5 +26,12 @@ public class RoadService {
     public List<RoadDto> getAll() {
         List<Road> roads =  new ArrayList<>(repo.findAll());
         return roadMapper.entitiesToDtos(roads);
+    }
+
+    public Road save(Road road) {
+        return repo.save(road);
+    }
+    public void delete(Integer id) {
+        repo.deleteById(id);
     }
 }

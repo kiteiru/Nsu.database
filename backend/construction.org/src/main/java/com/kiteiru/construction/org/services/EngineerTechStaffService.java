@@ -3,6 +3,7 @@ package com.kiteiru.construction.org.services;
 import com.kiteiru.construction.org.dto.EngineerTechStaffDto;
 import com.kiteiru.construction.org.dto.ObjectDto;
 import com.kiteiru.construction.org.dto.queries.EngineerTechStaffListDTO;
+import com.kiteiru.construction.org.entities.Employer;
 import com.kiteiru.construction.org.entities.EngineerTechStaff;
 import com.kiteiru.construction.org.entities.Object;
 import com.kiteiru.construction.org.mapper.EngineerTechStaffMapper;
@@ -30,5 +31,12 @@ public class EngineerTechStaffService {
 
     public List<EngineerTechStaffListDTO> getEngineerTechStaffList(Integer siteIdParam) {
         return repo.getEngineerTechStaffList(siteIdParam);
+    }
+
+    public EngineerTechStaff save(EngineerTechStaff engineerTechStaff) {
+        return repo.save(engineerTechStaff);
+    }
+    public void delete(Integer id) {
+        repo.deleteById(id);
     }
 }

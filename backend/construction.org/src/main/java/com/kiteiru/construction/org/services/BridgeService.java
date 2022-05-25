@@ -26,4 +26,11 @@ public class BridgeService {
         List<Bridge> bridges =  new ArrayList<>(repo.findAll());
         return bridgeMapper.entitiesToDtos(bridges);
     }
+
+    public Bridge save(Bridge bridge) {
+        return repo.save(bridge);
+    }
+    public void delete(Integer id) {
+        repo.deleteById(id);
+    }
 }

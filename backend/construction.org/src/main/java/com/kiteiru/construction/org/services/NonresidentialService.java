@@ -1,6 +1,7 @@
 package com.kiteiru.construction.org.services;
 
 import com.kiteiru.construction.org.dto.NonresidentialDto;
+import com.kiteiru.construction.org.entities.Material;
 import com.kiteiru.construction.org.entities.Nonresidential;
 import com.kiteiru.construction.org.entities.Residential;
 import com.kiteiru.construction.org.mapper.NonresidentialMapper;
@@ -25,5 +26,12 @@ public class NonresidentialService {
     public List<NonresidentialDto> getAll() {
         List<Nonresidential> nonresidentials =  new ArrayList<>(repo.findAll());
         return nonresidentialMapper.entitiesToDtos(nonresidentials);
+    }
+
+    public Nonresidential save(Nonresidential nonresidential) {
+        return repo.save(nonresidential);
+    }
+    public void delete(Integer id) {
+        repo.deleteById(id);
     }
 }

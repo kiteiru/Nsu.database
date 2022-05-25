@@ -4,6 +4,7 @@ import com.kiteiru.construction.org.dto.WorkTypeByBrigadeDto;
 import com.kiteiru.construction.org.dto.queries.WorkTypeByBrigadeInPeriodListDTO;
 import com.kiteiru.construction.org.entities.Site;
 import com.kiteiru.construction.org.entities.WorkTypeByBrigade;
+import com.kiteiru.construction.org.entities.Worker;
 import com.kiteiru.construction.org.mapper.WorkTypeByBrigadeMapper;
 import com.kiteiru.construction.org.repositories.WorkTypeByBrigadeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,4 +40,11 @@ public class WorkTypeByBrigadeService {
                                                      endDate,
                                                      objectIdParam);
     }*/
+
+    public WorkTypeByBrigade save(WorkTypeByBrigade workTypeByBrigade) {
+        return repo.save(workTypeByBrigade);
+    }
+    public void delete(Integer id) {
+        repo.deleteById(id);
+    }
 }

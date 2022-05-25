@@ -28,7 +28,10 @@ export default {
     name: String
   },
   data() {
-    return {params: {siteIdParam: null}, tableData: {}}
+    return {
+      params: {siteIdParam: null},
+      tableData: {}
+    }
   },
   mounted() {
     this.updateData()

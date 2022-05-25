@@ -1,13 +1,11 @@
 package com.kiteiru.construction.org.controllers;
 
 import com.kiteiru.construction.org.dto.queries.WorkTypeOverDeadlineListDTO;
+import com.kiteiru.construction.org.entities.BuildingType;
 import com.kiteiru.construction.org.entities.WorkType;
 import com.kiteiru.construction.org.services.WorkTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -33,5 +31,14 @@ public class WorkTypeController {
         return serv.getWorkTypeOverDeadlineList(siteIdParam,
                                                 managementIdParam,
                                                 organisationIdParam);
+    }
+
+    @PostMapping
+    public WorkType save(@RequestBody WorkType workType) {
+        return serv.save(workType);
+    }
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable("id") Integer id) {
+        serv.delete(id);
     }
 }

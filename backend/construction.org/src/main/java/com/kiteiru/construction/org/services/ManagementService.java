@@ -2,6 +2,7 @@ package com.kiteiru.construction.org.services;
 
 import com.kiteiru.construction.org.dto.ManagementDto;
 import com.kiteiru.construction.org.dto.queries.ManagementListDTO;
+import com.kiteiru.construction.org.entities.Labour;
 import com.kiteiru.construction.org.entities.Management;
 import com.kiteiru.construction.org.entities.Object;
 import com.kiteiru.construction.org.mapper.ManagementMapper;
@@ -30,5 +31,12 @@ public class ManagementService {
 
     public List<ManagementListDTO> getManagementList() {
         return repo.getManagementList();
+    }
+
+    public Management save(Management management) {
+        return repo.save(management);
+    }
+    public void delete(Integer id) {
+        repo.deleteById(id);
     }
 }

@@ -1,6 +1,7 @@
 package com.kiteiru.construction.org.services;
 
 import com.kiteiru.construction.org.dto.BrigadeDto;
+import com.kiteiru.construction.org.entities.Bridge;
 import com.kiteiru.construction.org.entities.Brigade;
 import com.kiteiru.construction.org.entities.BuildingType;
 import com.kiteiru.construction.org.mapper.BrigadeMapper;
@@ -40,4 +41,11 @@ public class BrigadeService {
                                                     endDate,
                                                     objectIdParam);
     }*/
+
+    public Brigade save(Brigade brigade) {
+        return repo.save(brigade);
+    }
+    public void delete(Integer id) {
+        repo.deleteById(id);
+    }
 }

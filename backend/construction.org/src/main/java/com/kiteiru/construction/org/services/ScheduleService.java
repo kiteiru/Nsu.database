@@ -2,6 +2,7 @@ package com.kiteiru.construction.org.services;
 
 import com.kiteiru.construction.org.dto.ScheduleDto;
 import com.kiteiru.construction.org.entities.Object;
+import com.kiteiru.construction.org.entities.Road;
 import com.kiteiru.construction.org.entities.Schedule;
 import com.kiteiru.construction.org.mapper.ScheduleMapper;
 import com.kiteiru.construction.org.repositories.ScheduleRepository;
@@ -25,5 +26,12 @@ public class ScheduleService {
     public List<ScheduleDto> getAll() {
         List<Schedule> schedules =  new ArrayList<>(repo.findAll());
         return scheduleMapper.entitiesToDtos(schedules);
+    }
+
+    public Schedule save(Schedule schedule) {
+        return repo.save(schedule);
+    }
+    public void delete(Integer id) {
+        repo.deleteById(id);
     }
 }

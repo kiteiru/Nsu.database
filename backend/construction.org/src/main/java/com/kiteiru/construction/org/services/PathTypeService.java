@@ -1,6 +1,7 @@
 package com.kiteiru.construction.org.services;
 
 import com.kiteiru.construction.org.dto.PathTypeDto;
+import com.kiteiru.construction.org.entities.Organisation;
 import com.kiteiru.construction.org.entities.PathType;
 import com.kiteiru.construction.org.mapper.PathTypeMapper;
 import com.kiteiru.construction.org.repositories.PathTypeRepository;
@@ -24,5 +25,12 @@ public class PathTypeService {
     public List<PathTypeDto> getAll() {
         List<PathType> pathTypes =  new ArrayList<>(repo.findAll());
         return pathTypeMapper.entitiesToDtos(pathTypes);
+    }
+
+    public PathType save(PathType pathType) {
+        return repo.save(pathType);
+    }
+    public void delete(Integer id) {
+        repo.deleteById(id);
     }
 }

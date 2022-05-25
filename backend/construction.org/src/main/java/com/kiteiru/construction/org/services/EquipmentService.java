@@ -3,6 +3,7 @@ package com.kiteiru.construction.org.services;
 import com.kiteiru.construction.org.dto.EquipmentDto;
 import com.kiteiru.construction.org.dto.queries.EquipmentListDTO;
 import com.kiteiru.construction.org.dto.queries.EquipmentOnObjectListDTO;
+import com.kiteiru.construction.org.entities.EngineerTechStaff;
 import com.kiteiru.construction.org.entities.Equipment;
 import com.kiteiru.construction.org.entities.Object;
 import com.kiteiru.construction.org.mapper.EquipmentMapper;
@@ -37,5 +38,12 @@ public class EquipmentService {
                                                                    Date startDate,
                                                                    Date endDate) {
         return repo.getEquipmentOnObjectList(objectIdParam, startDate, endDate);
+    }
+
+    public Equipment save(Equipment equipment) {
+        return repo.save(equipment);
+    }
+    public void delete(Integer id) {
+        repo.deleteById(id);
     }
 }

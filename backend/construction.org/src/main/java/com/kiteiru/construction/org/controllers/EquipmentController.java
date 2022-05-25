@@ -3,13 +3,12 @@ package com.kiteiru.construction.org.controllers;
 import com.kiteiru.construction.org.dto.EquipmentDto;
 import com.kiteiru.construction.org.dto.queries.EquipmentListDTO;
 import com.kiteiru.construction.org.dto.queries.EquipmentOnObjectListDTO;
+import com.kiteiru.construction.org.entities.BuildingType;
+import com.kiteiru.construction.org.entities.Equipment;
 import com.kiteiru.construction.org.services.EquipmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.sql.Date;
 import java.util.List;
@@ -41,5 +40,14 @@ public class EquipmentController {
                                                                     @RequestParam(required = false, name = "endDate")
                                                                     @DateTimeFormat(pattern = "dd.MM.yyyy") Date endDate) {
         return serv.getEquipmentOnObjectList(objectIdParam, startDate, endDate);
+    }
+
+    @PostMapping
+    public Equipment save(@RequestBody Equipment equipment) {
+        return serv.save(equipment);
+    }
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable("id") Integer id) {
+        serv.delete(id);
     }
 }

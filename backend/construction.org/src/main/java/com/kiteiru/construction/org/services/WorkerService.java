@@ -1,5 +1,6 @@
 package com.kiteiru.construction.org.services;
 
+import com.kiteiru.construction.org.entities.Site;
 import com.kiteiru.construction.org.entities.Worker;
 import com.kiteiru.construction.org.repositories.WorkerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,5 +34,12 @@ public class WorkerService {
 
     public List<Worker> getAllWorkersByName() {
         return repo.getAllWorkersByName();
+    }
+
+    public Worker save(Worker worker) {
+        return repo.save(worker);
+    }
+    public void delete(Integer id) {
+        repo.deleteById(id);
     }
 }

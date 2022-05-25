@@ -1,6 +1,7 @@
 package com.kiteiru.construction.org.services;
 
 import com.kiteiru.construction.org.dto.EstimateDto;
+import com.kiteiru.construction.org.entities.Equipment;
 import com.kiteiru.construction.org.entities.Estimate;
 import com.kiteiru.construction.org.entities.Object;
 import com.kiteiru.construction.org.mapper.EstimateMapper;
@@ -24,5 +25,12 @@ public class EstimateService {
     public List<EstimateDto> getAll() {
         List<Estimate> estimates =  new ArrayList<>(repo.findAll());
         return estimateMapper.entitiesToDtos(estimates);
+    }
+
+    public Estimate save(Estimate estimate) {
+        return repo.save(estimate);
+    }
+    public void delete(Integer id) {
+        repo.deleteById(id);
     }
 }

@@ -1,12 +1,11 @@
 package com.kiteiru.construction.org.controllers;
 
+import com.kiteiru.construction.org.entities.BuildingType;
 import com.kiteiru.construction.org.entities.Worker;
 import com.kiteiru.construction.org.services.WorkerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -42,4 +41,12 @@ public class WorkerController {
         return serv.getAllWorkersByName();
     }
 
+    @PostMapping
+    public Worker save(@RequestBody Worker worker) {
+        return serv.save(worker);
+    }
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable("id") Integer id) {
+        serv.delete(id);
+    }
 }

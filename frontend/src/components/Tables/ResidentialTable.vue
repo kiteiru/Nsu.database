@@ -13,6 +13,10 @@
           />
         </el-form-item>
 
+        <el-form-item label="Flat number">
+          <el-input v-model="form.flat" />
+        </el-form-item>
+
         <el-form-item>
           <el-button class="submit" type="success" round @click="createEntity">Create</el-button>
           <el-button round>Clear</el-button>
@@ -50,7 +54,8 @@ export default {
     return {
       tableData: {},
       form: reactive({
-        object: {id: ''}
+        object: {id: ''},
+        flat: null
       }),
       params: {objectIdParam: ''},
     }

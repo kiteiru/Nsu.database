@@ -41,7 +41,7 @@ import {getTableRecords} from "@/getTableRecords";
 import {ElMessage, ElMessageBox} from "element-plus";
 import axios from "axios";
 import {reactive} from "vue";
-import {siteIdParamOptions} from "@/data/parameters";
+import {objectIdParamOptions, siteIdParamOptions} from "@/data/parameters";
 import {ref} from "vue";
 
 
@@ -95,16 +95,21 @@ export default {
     },
     async createEntity() {
       try {
-        await axios.post(this.link, this.form)
+        const response = await axios.post(this.link, this.form)
         this.getTable()
+        this.allObjectOptions.push({
+          value: response.data.id,
+          label: response.data.name,
+        })
       } catch (e) {
         console.log(e);
       }
     }
   },
   setup() {
+    const allObjectOptions = ref(objectIdParamOptions)
     const allSiteOptions = ref(siteIdParamOptions)
-    return {allSiteOptions}
+    return {allSiteOptions,allObjectOptions }
   }
 }
 </script>

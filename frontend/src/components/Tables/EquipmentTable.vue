@@ -1,6 +1,42 @@
 <template>
   <div>
     <h1>{{ this.name }}</h1>
+
+    <div class="createForm">
+      <el-form :model="form">
+        <el-form-item label="Type">
+          <el-input v-model="form.type" />
+        </el-form-item>
+
+        <el-form-item label="Number">
+          <el-input v-model="form.num" />
+        </el-form-item>
+
+        <el-form-item label="Object name">
+          <el-select-v2
+              class="selectDropdown"
+              v-model="form.object.id"
+              :options="this.allObjectOptions"
+              placeholder="Select Object"
+          />
+        </el-form-item>
+
+        <el-form-item label="Work Type name">
+          <el-select-v2
+              class="selectDropdown"
+              v-model="form.workType.id"
+              :options="this.allWorkTypeOptions"
+              placeholder="Select Work Type"
+          />
+        </el-form-item>
+
+        <el-form-item>
+          <el-button class="submit" type="success" round @click="createEntity">Create</el-button>
+          <el-button round>Clear</el-button>
+        </el-form-item>
+      </el-form>
+    </div>
+
     <el-table :data="tableData.rows" style="width: 100%">
       <el-table-column v-for="column in this.tableData.columns"
                        v-bind:key="column.field" :prop="column.field" :label="column.headerName"/>
@@ -17,6 +53,8 @@
 import {getTableRecords} from "@/getTableRecords";
 import {ElMessage, ElMessageBox} from "element-plus";
 import axios from "axios";
+import {reactive, ref} from "vue";
+import {objectIdParamOptions, workTypeIdParamOptions} from "@/data/parameters";
 
 export default {
   name: "EquipmentTable",
@@ -26,7 +64,14 @@ export default {
   },
   data() {
     return {
-      tableData: {}
+      tableData: {},
+      form: reactive({
+        object: {id: ''},
+        workType: {id: ''},
+        num: null,
+        type: ''
+      }),
+      params: {objectIdParam: ''},
     }
   },
   mounted() {
@@ -60,11 +105,31 @@ export default {
           });
         }
       }
+    },
+    async createEntity() {
+      try {
+        await axios.post(this.link, this.form)
+        this.getTable()
+      } catch (e) {
+        console.log(e);
+      }
     }
+  },
+  setup() {
+    const allObjectOptions = ref(objectIdParamOptions)
+    const allWorkTypeOptions = ref(workTypeIdParamOptions)
+    return {allObjectOptions, allWorkTypeOptions}
   }
 }
 </script>
 
 <style scoped>
-
+.createForm {
+  width: 520px;
+  margin-left: 35%;
+  border: 2px solid #22c0c2;
+  border-radius: 20px;
+  padding: 30px 30px 15px;
+  margin-bottom: 30px;
+}
 </style>

@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import {getTableForQuery} from "@/getTableForQuery";
+import {getTableRecords} from "@/getTableRecords";
 import {organisationIdParamOptions, workTypeIdParamOptions} from "@/data/parameters";
 import {ref} from "vue";
 export default {
@@ -69,7 +69,7 @@ export default {
     updateData() {
       console.log(this.params.startDateParam)
       console.log(this.params.endDateParam)
-      getTableForQuery(this.link, this.params).then((ret) => { this.tableData = ret})
+      getTableRecords(this.link, this.params).then((ret) => { this.tableData = ret})
     }
   },
   setup() {

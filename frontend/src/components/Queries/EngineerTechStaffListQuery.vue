@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import {getTableForQuery} from "@/getTableForQuery";
+import {getTableRecords} from "@/getTableRecords";
 import {ref} from "vue";
 import {siteIdParamOptions} from "@/data/parameters";
 
@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     updateData() {
-      getTableForQuery(this.link, this.params).then((ret) => { this.tableData = ret})
+      getTableRecords(this.link, this.params).then((ret) => { this.tableData = ret})
     }
   },
   setup() {

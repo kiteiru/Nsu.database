@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import {getTableForQuery} from "@/getTableForQuery";
+import {getTableRecords} from "@/getTableRecords";
 import {objectIdParamOptions} from "@/data/parameters";
 import {ref} from "vue";
 
@@ -61,7 +61,7 @@ export default {
     updateData() {
       console.log(this.params.startDateParam)
       console.log(this.params.endDateParam)
-      getTableForQuery(this.link, this.params).then((ret) => { this.tableData = ret})
+      getTableRecords(this.link, this.params).then((ret) => { this.tableData = ret})
     }
   },
   setup() {

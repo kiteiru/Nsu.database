@@ -10,7 +10,7 @@ function capitalize(word) {
     return word.charAt(0).toUpperCase() + word.substring(1);
 }
 
-export async function getTableForQuery(link, params) {
+export async function getTableRecords(link, params) {
     try {
         const response = await axios.get(link, {params: params})
         let rows = response.data

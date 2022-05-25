@@ -1,0 +1,70 @@
+<template>
+  <div>
+    <h1>{{ this.name }}</h1>
+    <el-table :data="tableData.rows" style="width: 100%">
+      <el-table-column v-for="column in this.tableData.columns"
+                       v-bind:key="column.field" :prop="column.field" :label="column.headerName"/>
+      <el-table-column label="Delete Record">
+        <template #default="scope">
+          <el-button type="danger" round  v-on:click="deleteEntity(scope.$index)">Delete</el-button>
+        </template>
+      </el-table-column>
+    </el-table>
+  </div>
+</template>
+
+<script>
+import {getTableRecords} from "@/getTableRecords";
+import {ElMessage, ElMessageBox} from "element-plus";
+import axios from "axios";
+
+export default {
+  name: "WorkerTable",
+  props: {
+    link: String,
+    name: String
+  },
+  data() {
+    return {
+      tableData: {}
+    }
+  },
+  mounted() {
+    this.getTable()
+  },
+  methods: {
+    getTable() {
+      getTableRecords(this.link, null).then((ret) => { this.tableData = ret})
+    },
+    async deleteEntity(idx) {
+      let id = this.tableData.rows[idx].id
+      if (await ElMessageBox.confirm("Do you really want to delete this record?",
+          'Warning',
+          {
+            confirmButtonText: 'OK',
+            cancelButtonText: 'Cancel',
+            type: 'warning',
+          })) {
+        try {
+          await axios.delete(this.link + "/" + id)
+          this.tableData.rows.splice(idx, 1)
+          ElMessage({
+            type: 'success',
+            message: 'Successfully deleted',
+          })
+        } catch (e) {
+          console.log(e);
+          ElMessage({
+            type: 'info',
+            message: 'Unsuccessfully deleted',
+          });
+        }
+      }
+    }
+  }
+}
+</script>
+
+<style scoped>
+
+</style>

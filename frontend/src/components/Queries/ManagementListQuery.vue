@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import {getTableForQuery} from "@/getTableForQuery";
+import {getTableRecords} from "@/getTableRecords";
 
 export default {
   name: "ManagementListQuery",
@@ -26,7 +26,7 @@ export default {
   },
   methods: {
     updateData() {
-      getTableForQuery(this.link, {}).then((ret) => { this.tableData = ret})
+      getTableRecords(this.link, {}).then((ret) => { this.tableData = ret})
     }
   }
 }

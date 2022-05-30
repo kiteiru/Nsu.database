@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ResidentialRepository extends JpaRepository<Residential, Integer> {
+    void deleteResidentialByObjectId(Integer id);
 }

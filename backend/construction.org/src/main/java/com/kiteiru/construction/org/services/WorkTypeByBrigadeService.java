@@ -10,9 +10,10 @@ import com.kiteiru.construction.org.repositories.WorkTypeByBrigadeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.sql.Date;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.time.LocalDate;
 
 @Service
 public class WorkTypeByBrigadeService {
@@ -30,16 +31,16 @@ public class WorkTypeByBrigadeService {
         return workTypeByBrigadeMapper.entitiesToDtos(workTypeByBrigades);
     }
 
-    /*
+
     public List<WorkTypeByBrigadeInPeriodListDTO> getWorkTypeByBrigadeInPeriodList(Integer brigadeIdParam,
-                                                                                   Date startDate,
-                                                                                   Date endDate,
+                                                                                   LocalDate startDate,
+                                                                                   LocalDate endDate,
                                                                                    Integer objectIdParam) {
         return repo.getWorkTypeByBrigadeInPeriodList(brigadeIdParam,
                                                      startDate,
                                                      endDate,
                                                      objectIdParam);
-    }*/
+    }
 
     public WorkTypeByBrigade save(WorkTypeByBrigade workTypeByBrigade) {
         return repo.save(workTypeByBrigade);

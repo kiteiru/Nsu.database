@@ -1,10 +1,10 @@
 package com.kiteiru.construction.org.dto.queries;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 public interface WorkTypeByBrigadeInPeriodListDTO {
     String getObjectName();
     Integer getBrigadeId();
     String getWorkTypeName();
-    Date getScheduleActualDate();
+    LocalDate getScheduleActualDate();
 }

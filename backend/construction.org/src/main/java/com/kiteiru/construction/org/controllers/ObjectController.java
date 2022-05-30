@@ -10,7 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.kiteiru.construction.org.entities.Object;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.Date;
+
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -45,8 +46,8 @@ public class ObjectController {
 
     @GetMapping(path = "/work_type")
     public List <ObjectWorkTypeListDTO> getObjectWorkTypeList(@RequestParam(required = false) Integer organisationIdParam,
-                                                              @RequestParam(required = false) Date startDate,
-                                                              @RequestParam(required = false) Date endDate,
+                                                              @RequestParam(required = false) LocalDate startDate,
+                                                              @RequestParam(required = false) LocalDate endDate,
                                                               @RequestParam(required = false) Integer workTypeIdParam) {
         return serv.getObjectWorkTypeList(organisationIdParam,
                                             startDate,
@@ -58,12 +59,6 @@ public class ObjectController {
     public Object save(@RequestBody Object object) {
         return serv.save(object);
     }
-
-    /*@PutMapping
-    public Object updateObject(@RequestBody Object object) {
-        return serv.update(object);
-    }*/
-
     @DeleteMapping("/{id}")
     public void delete(@PathVariable("id") Integer id) {
         serv.delete(id);

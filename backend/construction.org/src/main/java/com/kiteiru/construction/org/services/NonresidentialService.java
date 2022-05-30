@@ -1,9 +1,7 @@
 package com.kiteiru.construction.org.services;
 
 import com.kiteiru.construction.org.dto.NonresidentialDto;
-import com.kiteiru.construction.org.entities.Material;
 import com.kiteiru.construction.org.entities.Nonresidential;
-import com.kiteiru.construction.org.entities.Residential;
 import com.kiteiru.construction.org.mapper.NonresidentialMapper;
 import com.kiteiru.construction.org.repositories.NonresidentialRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +30,6 @@ public class NonresidentialService {
         return repo.save(nonresidential);
     }
     public void delete(Integer id) {
-        repo.deleteById(id);
+        repo.deleteNonresidentialByObjectId(id);
     }
 }

@@ -1,8 +1,6 @@
 package com.kiteiru.construction.org.services;
 
 import com.kiteiru.construction.org.dto.ScheduleDto;
-import com.kiteiru.construction.org.entities.Object;
-import com.kiteiru.construction.org.entities.Road;
 import com.kiteiru.construction.org.entities.Schedule;
 import com.kiteiru.construction.org.mapper.ScheduleMapper;
 import com.kiteiru.construction.org.repositories.ScheduleRepository;

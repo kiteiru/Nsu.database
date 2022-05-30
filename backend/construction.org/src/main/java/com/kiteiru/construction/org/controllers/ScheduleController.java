@@ -1,7 +1,6 @@
 package com.kiteiru.construction.org.controllers;
 
 import com.kiteiru.construction.org.dto.ScheduleDto;
-import com.kiteiru.construction.org.entities.BuildingType;
 import com.kiteiru.construction.org.entities.Schedule;
 import com.kiteiru.construction.org.services.ScheduleService;
 import org.springframework.beans.factory.annotation.Autowired;

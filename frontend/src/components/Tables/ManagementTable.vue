@@ -19,7 +19,7 @@
 
         <el-form-item>
           <el-button class="submit" type="success" round @click="createEntity">Create</el-button>
-          <el-button round>Clear</el-button>
+
         </el-form-item>
       </el-form>
     </div>

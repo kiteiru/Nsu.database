@@ -1,5 +1,6 @@
 package com.kiteiru.construction.org.entities;
 
+import com.kiteiru.construction.org.dto.BaseDto;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,8 +16,8 @@ public class Nonresidential implements BaseEntity {
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @MapsId
-    @OneToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "id", nullable = false)
-    private BuildingType buildingType;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "object_id", nullable = false)
+    private Object object;
+
 }

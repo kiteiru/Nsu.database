@@ -2,7 +2,6 @@ package com.kiteiru.construction.org.services;
 
 import com.kiteiru.construction.org.dto.BridgeDto;
 import com.kiteiru.construction.org.entities.Bridge;
-import com.kiteiru.construction.org.entities.Object;
 import com.kiteiru.construction.org.mapper.BridgeMapper;
 import com.kiteiru.construction.org.repositories.BridgeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +30,6 @@ public class BridgeService {
         return repo.save(bridge);
     }
     public void delete(Integer id) {
-        repo.deleteById(id);
+        repo.deleteBridgeByObjectId(id);
     }
 }

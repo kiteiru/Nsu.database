@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,8 +40,8 @@ public class ObjectService {
     }
 
     public List<ObjectWorkTypeListDTO> getObjectWorkTypeList(Integer organisationIdParam,
-                                                               Date startDate,
-                                                               Date endDate,
+                                                             LocalDate startDate,
+                                                             LocalDate endDate,
                                                                Integer workTypeIdParam) {
         return repo.getObjectWorkTypeList(organisationIdParam,
                                             startDate,

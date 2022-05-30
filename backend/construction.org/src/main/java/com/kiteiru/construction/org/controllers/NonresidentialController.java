@@ -1,10 +1,10 @@
 package com.kiteiru.construction.org.controllers;
 
 import com.kiteiru.construction.org.dto.NonresidentialDto;
-import com.kiteiru.construction.org.entities.BuildingType;
 import com.kiteiru.construction.org.entities.Nonresidential;
 import com.kiteiru.construction.org.services.NonresidentialService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,6 +28,7 @@ public class NonresidentialController {
     public Nonresidential save(@RequestBody Nonresidential nonresidential) {
         return serv.save(nonresidential);
     }
+    @Transactional
     @DeleteMapping("/{id}")
     public void delete(@PathVariable("id") Integer id) {
         serv.delete(id);

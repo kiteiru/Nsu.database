@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface BuildingTypeRepository extends JpaRepository<BuildingType, Integer> {
+    void deleteBuildingTypeByObjectId(Integer id);
 }

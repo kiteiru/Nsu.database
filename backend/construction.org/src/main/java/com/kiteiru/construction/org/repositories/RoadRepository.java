@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface RoadRepository extends JpaRepository<Road, Integer> {
+    void deleteRoadByObjectId(Integer id);
 }

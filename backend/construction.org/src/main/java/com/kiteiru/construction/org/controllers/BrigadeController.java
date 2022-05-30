@@ -1,12 +1,16 @@
 package com.kiteiru.construction.org.controllers;
 
 import com.kiteiru.construction.org.dto.BrigadeDto;
+import com.kiteiru.construction.org.dto.queries.BrigadeByWorkTypeInPeriodListDTO;
+import com.kiteiru.construction.org.dto.queries.BrigadeListDTO;
 import com.kiteiru.construction.org.entities.Brigade;
 import com.kiteiru.construction.org.entities.Object;
 import com.kiteiru.construction.org.services.BrigadeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -24,7 +28,7 @@ public class BrigadeController {
         return serv.getAll();
     }
 
-    /*
+
     @GetMapping(path = "/list")
     public List <BrigadeListDTO> getBrigadeList(@RequestParam(required = false) Integer objectIdParam) {
         return serv.getBrigadeList(objectIdParam);
@@ -32,16 +36,16 @@ public class BrigadeController {
 
     @GetMapping(path = "/in_period")
     public List <BrigadeByWorkTypeInPeriodListDTO> getBrigadeByWorkTypeInPeriodList(@RequestParam(required = false) Integer workTypeIdParam,
-                                                                                   @RequestParam(required = false) Date startDate,
-                                                                                   @RequestParam(required = false) Date endDate,
-                                                                                   @RequestParam(required = false) Integer objectIdParam) {
+                                                                                    @RequestParam(required = false) LocalDate startDate,
+                                                                                    @RequestParam(required = false) LocalDate endDate,
+                                                                                    @RequestParam(required = false) Integer objectIdParam) {
         return serv.getBrigadeByWorkTypeInPeriodList(workTypeIdParam,
                                                     startDate,
                                                     endDate,
                                                     objectIdParam);
     }
 
-     */
+
 
     @PostMapping
     public Brigade save(@RequestBody Brigade brigade) {

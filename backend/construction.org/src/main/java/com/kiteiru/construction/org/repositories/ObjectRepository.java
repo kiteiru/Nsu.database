@@ -9,7 +9,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import com.kiteiru.construction.org.entities.Object;
-import java.sql.Date;
+
+import java.time.LocalDate;
 import java.util.List;
 
 @Repository
@@ -22,8 +23,8 @@ public interface ObjectRepository extends JpaRepository<Object, Integer> {
             "        FROM Management AS m" +
             "                 INNER JOIN Site AS s ON m.id = s.management.id" +
             "                 INNER JOIN Object AS o ON s.id = o.site.id" +
-            "                 INNER JOIN Schedule AS sch ON o.id = sch.object" +
-            "                 INNER JOIN WorkType wT on sch.workType = wT.id" +
+            "                 INNER JOIN Schedule AS sch ON o.id = sch.object.id" +
+            "                 INNER JOIN WorkType wT on sch.workType.id = wT.id" +
             "        WHERE (:siteIdParam IS NOT NULL AND s.id = :siteIdParam OR :siteIdParam IS NULL)")
     List<ObjectListDTO> getObjectList(@Param("siteIdParam") Integer siteIdParam);
 
@@ -33,11 +34,11 @@ public interface ObjectRepository extends JpaRepository<Object, Integer> {
             "               wT.name AS workTypeName," +
             "               sch.actualDate AS scheduleActualDate" +
             "        FROM Organisation AS org" +
-            "                 INNER JOIN Management AS m ON m.organisation = org.id" +
-            "                 INNER JOIN Site AS s ON s.management = m.id" +
-            "                 INNER JOIN Object AS o ON o.site = s.id" +
-            "                 INNER JOIN Schedule AS sch ON o.id = sch.object" +
-            "                 INNER JOIN WorkType AS wT ON sch.workType = wT.id" +
+            "                 INNER JOIN Management AS m ON m.organisation.id  = org.id" +
+            "                 INNER JOIN Site AS s ON s.management.id = m.id" +
+            "                 INNER JOIN Object AS o ON o.site.id = s.id" +
+            "                 INNER JOIN Schedule AS sch ON o.id = sch.object.id" +
+            "                 INNER JOIN WorkType AS wT ON sch.workType.id = wT.id" +
             "        WHERE ((:organisationIdParam IS NOT NULL AND org.id = :organisationIdParam OR :organisationIdParam IS NULL)" +
             "          AND ((:startDate IS NOT NULL AND :endDate IS NOT NULL AND sch.actualDate BETWEEN :startDate AND :endDate AND :startDate <= :endDate)" +
             "            OR (:startDate IS NOT NULL AND :endDate IS NULL AND sch.actualDate >= :startDate)" +
@@ -45,8 +46,8 @@ public interface ObjectRepository extends JpaRepository<Object, Integer> {
             "            OR (:startDate IS NULL AND :endDate IS NULL))" +
             "        AND (:workTypeIdParam IS NOT NULL AND wT.id = :workTypeIdParam OR :workTypeIdParam IS NULL))")
     List<ObjectWorkTypeListDTO> getObjectWorkTypeList(@Param("organisationIdParam") Integer organisationIdParam,
-                                                        @Param("startDate") Date startDate,
-                                                        @Param("endDate") Date endDate,
+                                                        @Param("startDate") LocalDate startDate,
+                                                        @Param("endDate") LocalDate endDate,
                                                         @Param("workTypeIdParam") Integer workTypeIdParam);
 
     @Query(value="SELECT o.name AS objectName," +
@@ -54,10 +55,10 @@ public interface ObjectRepository extends JpaRepository<Object, Integer> {
             "               wT.name AS workTypeName," +
             "               CONCAT(m.name, ': ', e.expenses) AS materialAndEstimate" +
             "        FROM Object AS o" +
-            "                 INNER JOIN Schedule AS sch ON sch.object = o.id" +
-            "                 INNER JOIN WorkType AS wT ON sch.workType = wT.id" +
-            "                 INNER JOIN Estimate AS e ON e.object = o.id" +
-            "                 INNER JOIN Material AS m ON m.id = e.material" +
+            "                 INNER JOIN Schedule AS sch ON sch.object.id = o.id" +
+            "                 INNER JOIN WorkType AS wT ON sch.workType.id = wT.id" +
+            "                 INNER JOIN Estimate AS e ON e.object.id = o.id" +
+            "                 INNER JOIN Material AS m ON m.id = e.material.id" +
             "        WHERE (:objectIdParam IS NOT NULL AND o.id = :objectIdParam OR :objectIdParam IS NULL)" +
             "        ORDER BY o.name")
     List<ScheduleAndEstimateListDTO> getScheduleAndEstimateList(@Param("objectIdParam") Integer objectIdParam);
@@ -67,10 +68,10 @@ public interface ObjectRepository extends JpaRepository<Object, Integer> {
             "               sch.actualDate AS scheduleActualDate," +
             "               e.expenses AS estimateExpenses" +
             "        FROM Object AS o" +
-            "                 INNER JOIN Schedule AS sch ON sch.object = o.id" +
-            "                 INNER JOIN WorkType AS wT ON sch.workType = wT.id" +
-            "                 INNER JOIN Estimate AS e ON e.object = o.id" +
-            "                 INNER JOIN Material AS m ON m.id = e.material" +
+            "                 INNER JOIN Schedule AS sch ON sch.object.id = o.id" +
+            "                 INNER JOIN WorkType AS wT ON sch.workType.id = wT.id" +
+            "                 INNER JOIN Estimate AS e ON e.object.id = o.id" +
+            "                 INNER JOIN Material AS m ON m.id = e.material.id" +
             "        WHERE (:objectIdParam IS NOT NULL AND o.id = :objectIdParam OR :objectIdParam IS NULL)" +
             "        ORDER BY o.name")
     List<ReportListDTO> getReportList(@Param("objectIdParam") Integer objectIdParam);

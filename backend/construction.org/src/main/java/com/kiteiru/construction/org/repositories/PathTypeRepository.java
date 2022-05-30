@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PathTypeRepository extends JpaRepository<PathType, Integer> {
+    void deletePathTypeByObjectId(Integer id);
 }

@@ -1,7 +1,6 @@
 package com.kiteiru.construction.org.controllers;
 
 import com.kiteiru.construction.org.dto.EstimateDto;
-import com.kiteiru.construction.org.entities.BuildingType;
 import com.kiteiru.construction.org.entities.Estimate;
 import com.kiteiru.construction.org.services.EstimateService;
 import org.springframework.beans.factory.annotation.Autowired;

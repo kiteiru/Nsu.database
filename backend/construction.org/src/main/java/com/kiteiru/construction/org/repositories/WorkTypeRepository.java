@@ -19,11 +19,11 @@ public interface WorkTypeRepository extends JpaRepository<WorkType, Integer> {
             "               sch.deadline AS scheduleDeadline," +
             "               sch.actualDate AS scheduleActualDate" +
             "        FROM Organisation AS org" +
-            "                 INNER JOIN Management AS m ON m.organisation = org.id" +
-            "                 INNER JOIN Site AS s ON s.management = m.id" +
-            "                 INNER JOIN Object AS o ON o.site = s.id" +
-            "                 INNER JOIN Schedule AS sch ON sch.object = o.id" +
-            "                 INNER JOIN WorkType AS wT ON sch.workType = wT.id" +
+            "                 INNER JOIN Management AS m ON m.organisation.id = org.id" +
+            "                 INNER JOIN Site AS s ON s.management.id = m.id" +
+            "                 INNER JOIN Object AS o ON o.site.id = s.id" +
+            "                 INNER JOIN Schedule AS sch ON sch.object.id = o.id" +
+            "                 INNER JOIN WorkType AS wT ON sch.workType.id = wT.id" +
             "        WHERE ((:siteIdParam IS NOT NULL AND s.id = :siteIdParam OR :siteIdParam IS NULL)" +
             "          AND (:managementIdParam IS NOT NULL AND m.id = :managementIdParam OR :managementIdParam IS NULL)" +
             "          AND (:organisationIdParam IS NOT NULL AND org.id = :organisationIdParam OR :organisationIdParam IS NULL)" +

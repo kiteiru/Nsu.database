@@ -1,10 +1,10 @@
 package com.kiteiru.construction.org.dto.queries;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 public interface ScheduleAndEstimateListDTO {
     String geObjectName();
-    Date getScheduleDeadline();
+    LocalDate getScheduleDeadline();
     String getWorkTypeName();
     String getMaterialAndEstimate();
 }

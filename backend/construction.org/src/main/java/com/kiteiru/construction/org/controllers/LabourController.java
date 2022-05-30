@@ -1,7 +1,6 @@
 package com.kiteiru.construction.org.controllers;
 
 import com.kiteiru.construction.org.dto.LabourDto;
-import com.kiteiru.construction.org.entities.BuildingType;
 import com.kiteiru.construction.org.entities.Labour;
 import com.kiteiru.construction.org.services.LabourService;
 import org.springframework.beans.factory.annotation.Autowired;

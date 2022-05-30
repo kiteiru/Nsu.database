@@ -1,7 +1,6 @@
 package com.kiteiru.construction.org.services;
 
 import com.kiteiru.construction.org.dto.BuildingTypeDto;
-import com.kiteiru.construction.org.entities.Brigade;
 import com.kiteiru.construction.org.entities.BuildingType;
 import com.kiteiru.construction.org.mapper.BuildingTypeMapper;
 import com.kiteiru.construction.org.repositories.BuildingTypeRepository;
@@ -30,6 +29,6 @@ public class BuildingTypeService {
         return repo.save(buildingType);
     }
     public void delete(Integer id) {
-        repo.deleteById(id);
+        repo.deleteBuildingTypeByObjectId(id);
     }
 }

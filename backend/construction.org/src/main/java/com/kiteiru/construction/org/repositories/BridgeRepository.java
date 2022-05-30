@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface BridgeRepository extends JpaRepository<Bridge, Integer> {
+    void deleteBridgeByObjectId(Integer id);
 }

@@ -1,6 +1,5 @@
 package com.kiteiru.construction.org.services;
 
-import com.kiteiru.construction.org.entities.Nonresidential;
 import com.kiteiru.construction.org.entities.Organisation;
 import com.kiteiru.construction.org.repositories.OrganisationRepository;
 import org.springframework.beans.factory.annotation.Autowired;

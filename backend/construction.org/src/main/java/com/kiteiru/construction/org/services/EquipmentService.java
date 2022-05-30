@@ -11,8 +11,9 @@ import com.kiteiru.construction.org.repositories.EquipmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.sql.Date;
+import java.time.LocalDate;
 import java.util.ArrayList;
+
 import java.util.List;
 
 @Service
@@ -35,8 +36,8 @@ public class EquipmentService {
     }
 
     public List<EquipmentOnObjectListDTO> getEquipmentOnObjectList(Integer objectIdParam,
-                                                                   Date startDate,
-                                                                   Date endDate) {
+                                                                   LocalDate startDate,
+                                                                   LocalDate endDate) {
         return repo.getEquipmentOnObjectList(objectIdParam, startDate, endDate);
     }
 

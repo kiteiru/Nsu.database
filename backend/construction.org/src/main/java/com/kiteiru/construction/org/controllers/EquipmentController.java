@@ -3,14 +3,13 @@ package com.kiteiru.construction.org.controllers;
 import com.kiteiru.construction.org.dto.EquipmentDto;
 import com.kiteiru.construction.org.dto.queries.EquipmentListDTO;
 import com.kiteiru.construction.org.dto.queries.EquipmentOnObjectListDTO;
-import com.kiteiru.construction.org.entities.BuildingType;
 import com.kiteiru.construction.org.entities.Equipment;
 import com.kiteiru.construction.org.services.EquipmentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.Date;
+
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -35,10 +34,8 @@ public class EquipmentController {
 
     @GetMapping(path = "/on_objects")
     public List <EquipmentOnObjectListDTO> getEquipmentOnObjectList(@RequestParam(required = false) Integer objectIdParam,
-                                                                    @RequestParam(required = false, name = "startDate")
-                                                                    @DateTimeFormat(pattern = "dd.MM.yyyy") Date startDate,
-                                                                    @RequestParam(required = false, name = "endDate")
-                                                                    @DateTimeFormat(pattern = "dd.MM.yyyy") Date endDate) {
+                                                                    @RequestParam(required = false) LocalDate startDate,
+                                                                    @RequestParam(required = false) LocalDate endDate) {
         return serv.getEquipmentOnObjectList(objectIdParam, startDate, endDate);
     }
 

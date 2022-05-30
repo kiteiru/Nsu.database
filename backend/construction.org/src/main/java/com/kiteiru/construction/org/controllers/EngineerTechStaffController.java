@@ -2,7 +2,6 @@ package com.kiteiru.construction.org.controllers;
 
 import com.kiteiru.construction.org.dto.EngineerTechStaffDto;
 import com.kiteiru.construction.org.dto.queries.EngineerTechStaffListDTO;
-import com.kiteiru.construction.org.entities.BuildingType;
 import com.kiteiru.construction.org.entities.EngineerTechStaff;
 import com.kiteiru.construction.org.services.EngineerTechStaffService;
 import org.springframework.beans.factory.annotation.Autowired;

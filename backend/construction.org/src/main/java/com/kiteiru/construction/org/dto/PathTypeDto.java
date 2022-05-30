@@ -1,15 +1,16 @@
 package com.kiteiru.construction.org.dto;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class PathTypeDto implements BaseDto {
-    private Integer id;
+    private Integer objectId;
     private String objectName;
     private Integer laneNum;
     private Double width;

@@ -1,6 +1,5 @@
 package com.kiteiru.construction.org.controllers;
 
-import com.kiteiru.construction.org.entities.BuildingType;
 import com.kiteiru.construction.org.entities.Employer;
 import com.kiteiru.construction.org.services.EmployerService;
 import org.springframework.beans.factory.annotation.Autowired;

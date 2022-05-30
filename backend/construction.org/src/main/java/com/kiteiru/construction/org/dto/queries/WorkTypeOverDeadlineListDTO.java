@@ -1,6 +1,6 @@
 package com.kiteiru.construction.org.dto.queries;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 public interface WorkTypeOverDeadlineListDTO {
     String getOrganisationName();
@@ -8,6 +8,6 @@ public interface WorkTypeOverDeadlineListDTO {
     String getSiteName();
     String getObjectName();
     String getWorkTypeName();
-    Date getScheduleDeadline();
-    Date getScheduleActualDate();
+    LocalDate getScheduleDeadline();
+    LocalDate getScheduleActualDate();
 }

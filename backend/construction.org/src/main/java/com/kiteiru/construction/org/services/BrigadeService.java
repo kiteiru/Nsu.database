@@ -1,14 +1,16 @@
 package com.kiteiru.construction.org.services;
 
 import com.kiteiru.construction.org.dto.BrigadeDto;
-import com.kiteiru.construction.org.entities.Bridge;
+import com.kiteiru.construction.org.dto.queries.BrigadeByWorkTypeInPeriodListDTO;
+import com.kiteiru.construction.org.dto.queries.BrigadeListDTO;
 import com.kiteiru.construction.org.entities.Brigade;
-import com.kiteiru.construction.org.entities.BuildingType;
 import com.kiteiru.construction.org.mapper.BrigadeMapper;
 import com.kiteiru.construction.org.repositories.BrigadeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,19 +30,19 @@ public class BrigadeService {
         return brigadeMapper.entitiesToDtos(brigades);
     }
 
-    /*public List<BrigadeListDTO> getBrigadeList(Integer objectIdParam) {
+    public List<BrigadeListDTO> getBrigadeList(Integer objectIdParam) {
         return repo.getBrigadeList(objectIdParam);
-    }*/
+    }
 
-    /*public List<BrigadeByWorkTypeInPeriodListDTO> getBrigadeByWorkTypeInPeriodList(Integer workTypeIdParam,
-                                                                                  Date startDate,
-                                                                                  Date endDate,
-                                                                                  Integer objectIdParam) {
+    public List<BrigadeByWorkTypeInPeriodListDTO> getBrigadeByWorkTypeInPeriodList(Integer workTypeIdParam,
+                                                                                   LocalDate startDate,
+                                                                                   LocalDate endDate,
+                                                                                   Integer objectIdParam) {
         return repo.getBrigadeByWorkTypeInPeriodList(workTypeIdParam,
                                                     startDate,
                                                     endDate,
                                                     objectIdParam);
-    }*/
+    }
 
     public Brigade save(Brigade brigade) {
         return repo.save(brigade);

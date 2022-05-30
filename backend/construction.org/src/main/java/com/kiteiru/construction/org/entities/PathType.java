@@ -9,16 +9,11 @@ import javax.persistence.*;
 @Setter
 @Entity
 @Table(name = "path_type")
-public class PathType implements BaseEntity{
+public class PathType implements BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Integer id;
-
-    @MapsId
-    @OneToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "id", nullable = false)
-    private Object object;
 
     @Column(name = "lane_num", nullable = false)
     private Integer laneNum;
@@ -28,5 +23,9 @@ public class PathType implements BaseEntity{
 
     @Column(name = "length", nullable = false)
     private Double length;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "object_id", nullable = false)
+    private Object object;
 
 }

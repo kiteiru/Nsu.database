@@ -1,9 +1,7 @@
 package com.kiteiru.construction.org.services;
 
 import com.kiteiru.construction.org.dto.ContractDto;
-import com.kiteiru.construction.org.entities.BuildingType;
 import com.kiteiru.construction.org.entities.Contract;
-import com.kiteiru.construction.org.entities.Object;
 import com.kiteiru.construction.org.mapper.ContractMapper;
 import com.kiteiru.construction.org.repositories.ContractRepository;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -14,7 +14,7 @@
 
         <el-form-item>
           <el-button class="submit" type="success" round @click="createEntity">Create</el-button>
-          <el-button round>Clear</el-button>
+
         </el-form-item>
       </el-form>
     </div>
@@ -36,6 +36,8 @@ import {getTableRecords} from "@/getTableRecords";
 import {ElMessage, ElMessageBox} from "element-plus";
 import axios from "axios";
 import {reactive} from "vue";
+import {ref} from "vue";
+import {employerIdParamOptions} from "@/data/parameters";
 
 export default {
   name: "EmployerTable",
@@ -86,12 +88,20 @@ export default {
     },
     async createEntity() {
       try {
-        await axios.post(this.link, this.form)
+        const response = await axios.post(this.link, this.form)
         this.getTable()
+        this.allEmployerOptions.push({
+          value: response.data.id,
+          label: response.data.name,
+        })
       } catch (e) {
         console.log(e);
       }
     }
+  },
+  setup() {
+    const allEmployerOptions = ref(employerIdParamOptions)
+    return {allEmployerOptions}
   }
 }
 </script>

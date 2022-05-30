@@ -2,7 +2,6 @@ package com.kiteiru.construction.org.controllers;
 
 import com.kiteiru.construction.org.dto.ManagementDto;
 import com.kiteiru.construction.org.dto.queries.ManagementListDTO;
-import com.kiteiru.construction.org.entities.BuildingType;
 import com.kiteiru.construction.org.entities.Management;
 import com.kiteiru.construction.org.services.ManagementService;
 import org.springframework.beans.factory.annotation.Autowired;

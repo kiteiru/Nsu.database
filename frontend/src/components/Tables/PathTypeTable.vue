@@ -1,6 +1,7 @@
 <template>
   <div>
     <h1>{{ this.name }}</h1>
+
     <el-table :data="tableData.rows" style="width: 100%">
       <el-table-column v-for="column in this.tableData.columns"
                        v-bind:key="column.field" :prop="column.field" :label="column.headerName"/>
@@ -17,6 +18,8 @@
 import {getTableRecords} from "@/getTableRecords";
 import {ElMessage, ElMessageBox} from "element-plus";
 import axios from "axios";
+import {reactive, ref} from "vue";
+import {objectIdParamOptions} from "@/data/parameters";
 
 export default {
   name: "PathTypeTable",
@@ -26,7 +29,13 @@ export default {
   },
   data() {
     return {
-      tableData: {}
+      tableData: {},
+      form: reactive({
+        object: {id: ''},
+        laneNum: null,
+        width: null,
+        length: null
+      })
     }
   },
   mounted() {
@@ -37,7 +46,7 @@ export default {
       getTableRecords(this.link, null).then((ret) => { this.tableData = ret})
     },
     async deleteEntity(idx) {
-      let id = this.tableData.rows[idx].id
+      let id = this.tableData.rows[idx].objectId
       if (await ElMessageBox.confirm("Do you really want to delete this record?",
           'Warning',
           {
@@ -60,11 +69,22 @@ export default {
           });
         }
       }
+    },
+    async createEntity() {
+      try {
+        await axios.post(this.link, this.form)
+        this.getTable()
+      } catch (e) {
+        console.log(e);
+      }
     }
+  },
+  setup() {
+    const allObjectOptions = ref(objectIdParamOptions)
+    return {allObjectOptions}
   }
 }
 </script>
 
 <style scoped>
-
 </style>

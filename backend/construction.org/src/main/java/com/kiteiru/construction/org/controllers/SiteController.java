@@ -1,7 +1,6 @@
 package com.kiteiru.construction.org.controllers;
 
 import com.kiteiru.construction.org.dto.SiteDto;
-import com.kiteiru.construction.org.entities.BuildingType;
 import com.kiteiru.construction.org.entities.Site;
 import com.kiteiru.construction.org.services.SiteService;
 import org.springframework.beans.factory.annotation.Autowired;

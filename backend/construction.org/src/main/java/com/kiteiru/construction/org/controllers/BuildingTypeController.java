@@ -1,10 +1,10 @@
 package com.kiteiru.construction.org.controllers;
 
 import com.kiteiru.construction.org.dto.BuildingTypeDto;
-import com.kiteiru.construction.org.entities.Brigade;
 import com.kiteiru.construction.org.entities.BuildingType;
 import com.kiteiru.construction.org.services.BuildingTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,6 +28,7 @@ public class BuildingTypeController {
     public BuildingType save(@RequestBody BuildingType buildingType) {
         return serv.save(buildingType);
     }
+    @Transactional
     @DeleteMapping("/{id}")
     public void delete(@PathVariable("id") Integer id) {
         serv.delete(id);

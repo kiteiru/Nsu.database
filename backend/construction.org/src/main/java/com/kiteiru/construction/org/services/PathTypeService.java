@@ -1,7 +1,6 @@
 package com.kiteiru.construction.org.services;
 
 import com.kiteiru.construction.org.dto.PathTypeDto;
-import com.kiteiru.construction.org.entities.Organisation;
 import com.kiteiru.construction.org.entities.PathType;
 import com.kiteiru.construction.org.mapper.PathTypeMapper;
 import com.kiteiru.construction.org.repositories.PathTypeRepository;
@@ -31,6 +30,6 @@ public class PathTypeService {
         return repo.save(pathType);
     }
     public void delete(Integer id) {
-        repo.deleteById(id);
+        repo.deletePathTypeByObjectId(id);
     }
 }

@@ -1,12 +1,12 @@
 # Nsu.database
 Database project, 6th semester
 
-## Technologies used:
+## Technologies used
 * **_Database:_** PostgreSQL
 * **_Backend:_** Spring Boot
 * **_Frontend:_** Vue3 + Element Plus
 
-## Screenshots:
+## Screenshots
 
 ### Home page
 ![alt text](images/home.png)

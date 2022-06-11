@@ -9,7 +9,7 @@
         What can you do on this lonely website?
 
           ○ Find brief info about tables and relationships
-          ○ Select interesting table and check out its records
+          ○ Check out tables records, add and delete new ones
           ○ Choose queries with certain parameters and get filtered info
 
         Enjoy~
